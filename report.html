@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#173f35">
-  <meta name="description" content="Learn about Team Green, its mission, and the CSP group members behind the community work.">
-  <title>About | Team Green</title>
+  <meta name="description" content="Read the Growing Green tree plantation CSP report, project details, weekly reports, benefits, and acknowledgements.">
+  <title>CSP Project Report | Growing Green</title>
   <style>
     :root {
       --forest: #173f35;
@@ -314,6 +314,164 @@
       text-align: center;
     }
 
+    .report-hero {
+      display: flex;
+      min-height: 360px;
+      align-items: end;
+      background:
+        linear-gradient(90deg, rgb(10 35 27 / 82%), rgb(10 35 27 / 28%)),
+        url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=85")
+        center 48% / cover;
+      color: white;
+    }
+
+    .report-hero h1 {
+      max-width: 800px;
+      margin: 0;
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
+      letter-spacing: -0.055em;
+    }
+
+    .report-hero p:last-child {
+      max-width: 650px;
+      margin: 16px 0 0;
+      color: rgb(255 255 255 / 84%);
+      font-size: 1.08rem;
+    }
+
+    .report-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 22px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      background: white;
+    }
+
+    .report-nav a {
+      color: var(--forest);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .report-nav a:hover {
+      color: var(--leaf);
+    }
+
+    .report-section {
+      padding-block: 68px;
+      scroll-margin-top: 25px;
+    }
+
+    .report-section:nth-of-type(even) {
+      background: var(--cream);
+    }
+
+    .report-section h2 {
+      margin: 0 0 18px;
+      color: var(--forest);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      letter-spacing: -0.04em;
+    }
+
+    .report-section > .container > p {
+      color: var(--muted);
+    }
+
+    .project-details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 26px 0 0;
+    }
+
+    .project-details div,
+    .report-card,
+    .week-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: white;
+    }
+
+    .project-details dt {
+      margin-bottom: 4px;
+      color: var(--leaf);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-details dd {
+      margin: 0;
+      color: var(--forest);
+      font-weight: 700;
+    }
+
+    .report-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .report-card h3,
+    .week-card h3 {
+      margin: 0 0 12px;
+      color: var(--forest);
+      font-size: 1.2rem;
+    }
+
+    .report-card p,
+    .week-card ul {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .week-card time {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--leaf);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .week-reports {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .week-card ul {
+      display: grid;
+      gap: 9px;
+      padding-left: 20px;
+    }
+
+    .week-card li::marker {
+      color: var(--leaf);
+    }
+
+    .report-ack {
+      padding: 26px;
+      border-left: 4px solid var(--leaf);
+      border-radius: 0 16px 16px 0;
+      background: white;
+      color: var(--muted);
+    }
+
+    .report-ack p {
+      margin: 0;
+    }
+
+    .report-ack p + p {
+      margin-top: 12px;
+    }
+
     .join {
       padding-block: 72px;
       background: var(--forest);
@@ -395,6 +553,10 @@
         gap: 30px;
       }
 
+      .report-cards {
+        grid-template-columns: 1fr;
+      }
+
       .mission-image {
         min-height: 310px;
       }
@@ -419,7 +581,9 @@
       }
 
       .values,
-      .member-list {
+      .member-list,
+      .project-details,
+      .week-reports {
         grid-template-columns: 1fr;
       }
     }
@@ -442,115 +606,140 @@
         <span>Team Green</span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="index.html#plants">Plants &amp; Offset</a>
-        <a href="index.html#project">Projects</a>
-        <a href="about.html" aria-current="page">About us</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About us</a>
+        <a href="#activities" aria-current="page">CSP report</a>
         <a href="index.html#gallery">Gallery</a>
-        <a class="nav-cta" href="index.html#register">Register</a>
+        <a class="nav-cta" href="index.html#location">Project location</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="report-hero">
       <div class="container hero-content">
-        <p class="eyebrow">Our story</p>
-        <h1>A shared mission to make our world greener.</h1>
+        <p class="eyebrow">Community Service Project</p>
+        <h1>Growing Green: Tree Plantation CSP</h1>
         <p>
-          The Team Green project brings people together around tree
-          planting, forest conservation, and practical ways to support a more
-          sustainable future.
+          Project report · Brahmadevam
         </p>
-        <span class="location-tag"><span aria-hidden="true">ðŸ“</span> Brahmadevam, Nellore, Andhra Pradesh</span>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container mission-grid">
-        <div class="mission-image" role="img" aria-label="A sunlit forest filled with green trees"></div>
-        <div class="mission-copy">
-          <p class="eyebrow">Our mission</p>
-          <h2>Make tree planting easier for everyone.</h2>
-          <p>
-            The project encourages citizens and organizations to take part in
-            tree planting, reforestation, and conservation. Trees store carbon
-            as they grow, but a healthy, lasting impact depends on choosing
-            suitable trees and caring for them over time.
-          </p>
-          <p>
-            Through awareness and practical community projects, we aim to make
-            planting and maintaining trees more accessible while supporting
-            local communities and protecting biodiversity.
-          </p>
-        </div>
-      </div>
-    </section>
+    <nav class="report-nav" aria-label="Project report sections">
+      <a href="#about">About</a>
+      <a href="#summary">Executive summary</a>
+      <a href="#community">Community overview</a>
+      <a href="#activities">Weekly reports</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#ack">Acknowledgements</a>
+    </nav>
 
-    <section class="section section-soft">
+    <section class="report-section" id="about">
       <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">What guides us</p>
-          <h2>Growing a meaningful impact</h2>
-          <p>
-            Tree planting works best when it is part of a broader commitment
-            to healthy ecosystems and community participation.
-          </p>
+        <p class="eyebrow">About the project</p>
+        <h2>Project details</h2>
+        <dl class="project-details">
+          <div><dt>Student</dt><dd>Kalthireddy Ajay · Reg. No: 24JNA05315</dd></div>
+          <div><dt>Program</dt><dd>III Year B.Tech (CSE)</dd></div>
+          <div><dt>College</dt><dd>Sree Venkateswara College of Engineering, Nellore</dd></div>
+          <div><dt>Faculty guide</dt><dd>Mr. B. Rammurthi</dd></div>
+          <div><dt>Duration</dt><dd>30 June 2025 – 23 August 2025</dd></div>
+          <div><dt>Location</dt><dd>Brahmadevam</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="report-section" id="summary">
+      <div class="container">
+        <p class="eyebrow">Executive summary</p>
+        <h2>Why tree planting matters</h2>
+        <p>Tree planting is the process of transplanting seedlings for forestry, land reclamation, or landscaping. Trees provide oxygen, improve air quality, conserve water, preserve soil, and support wildlife. Plantation can help reduce pollution and address climate change by storing carbon dioxide as trees grow. Afforestation and reforestation are important strategies for restoring damaged forests.</p>
+      </div>
+    </section>
+
+    <section class="report-section" id="community">
+      <div class="container">
+        <p class="eyebrow">Community overview</p>
+        <h2>Planting with care and local knowledge</h2>
+        <p>Tree planting has become a cornerstone of environmental campaigns. Forests can store carbon, regulate water cycles, and provide habitat. Planting initiatives should be carefully researched and suited to local ecosystems so that restoration efforts support, rather than harm, the environment.</p>
+        <div class="report-cards">
+          <article class="report-card">
+            <h3>Forests store carbon</h3>
+            <p>Healthy forests absorb and store carbon as they grow, contributing to climate-change mitigation.</p>
+          </article>
+          <article class="report-card">
+            <h3>Forests support ecosystems</h3>
+            <p>Forests help regulate rainfall and provide important habitats for wildlife.</p>
+          </article>
+          <article class="report-card">
+            <h3>Planting needs planning</h3>
+            <p>Choose suitable locations and species, and plan for long-term care to avoid unintended harm.</p>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <section class="report-section" id="activities">
+      <div class="container">
+        <p class="eyebrow">Weekly reports</p>
+        <h2>Project activities</h2>
+        <div class="week-reports">
+          <article class="week-card">
+            <time datetime="2025-06-30/2025-07-05">Week 1 · 30 June–5 July 2025</time>
+            <h3>Survey and planning</h3>
+            <ul>
+              <li>Studied CSP guidelines and planned the schedule.</li>
+              <li>Received permission from the VRO of NTR Nagar to conduct a survey.</li>
+              <li>Surveyed households and found limited awareness of tree benefits.</li>
+              <li>Planned a community-supported plantation near school roads.</li>
+              <li>Met the principal of Brahmadevam High School and received approval for an awareness program.</li>
+            </ul>
+          </article>
+          <article class="week-card">
+            <time datetime="2025-07-07/2025-07-12">Week 2 · 7–12 July 2025</time>
+            <h3>Awareness and participation</h3>
+            <ul>
+              <li>Collected banners, pamphlets, and posters for the awareness program.</li>
+              <li>Placed posters in schools to educate students.</li>
+              <li>Distributed pamphlets to local residents and observed a positive response.</li>
+              <li>Organized an awareness rally with slogans and banners.</li>
+              <li>Used pictures to share information with elderly residents and people with limited literacy.</li>
+              <li>Distributed plants and encouraged participation in the plantation drive.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="report-section" id="benefits">
+      <div class="container">
+        <p class="eyebrow">Benefits</p>
+        <h2>Benefits of tree plantation</h2>
         <div class="values">
-          <article class="value-card">
-            <div class="value-icon" aria-hidden="true">ðŸŒ³</div>
-            <h3>Restore forests</h3>
-            <p>Support responsible planting and conservation efforts that help restore natural spaces.</p>
-          </article>
-          <article class="value-card">
-            <div class="value-icon" aria-hidden="true">ðŸ¦‹</div>
-            <h3>Protect biodiversity</h3>
-            <p>Recognize the value of forests as habitats for the many species that depend on them.</p>
-          </article>
-          <article class="value-card">
-            <div class="value-icon" aria-hidden="true">ðŸ¤</div>
-            <h3>Work together</h3>
-            <p>Encourage volunteers and communities to plant, nurture, and monitor trees over time.</p>
-          </article>
+          <article class="value-card"><div class="value-icon" aria-hidden="true">🌍</div><h3>Climate action</h3><p>Trees store carbon and support healthier ecosystems.</p></article>
+          <article class="value-card"><div class="value-icon" aria-hidden="true">👨‍👩‍👧‍👦</div><h3>Community wellbeing</h3><p>Green spaces can support social connection and wellbeing.</p></article>
+          <article class="value-card"><div class="value-icon" aria-hidden="true">💰</div><h3>Economic value</h3><p>Trees can provide lasting value when selected and cared for responsibly.</p></article>
+          <article class="value-card"><div class="value-icon" aria-hidden="true">🌳</div><h3>Environmental protection</h3><p>Trees help protect soil, conserve water, and support wildlife.</p></article>
+          <article class="value-card"><div class="value-icon" aria-hidden="true">❤️</div><h3>Personal fulfilment</h3><p>Taking part in caring for nature can be a rewarding community activity.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="team">
+    <section class="report-section" id="ack">
       <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">CSP group</p>
-          <h2>The people behind the project</h2>
-          <p>
-            The community service project was carried out by this student team.
-          </p>
+        <p class="eyebrow">Acknowledgements</p>
+        <h2>With gratitude</h2>
+        <div class="report-ack">
+          <p>Special thanks to Dr. P. Guna Sekhar (Chairman), Dr. M. Sreenivasa Kumar (Principal), Dr. Y. Ravi Kumar (HoD), and my guide Mr. B. Rammurthi for their support.</p>
+          <p>Gratitude to Mrs. Ch. Vanaja (CSP Coordinator), faculty, staff, parents, and community members for their encouragement and assistance.</p>
         </div>
-        <div class="team-message">
-          <p>Our CSP group members:</p>
-        </div>
-        <ul class="member-list" aria-label="Community Service Project group members">
-          <li>K. Hema Vardhan</li>
-          <li>K. Ajay</li>
-          <li>K. Praveen Kumar</li>
-          <li>K. Giri</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="join">
-      <div class="container">
-        <h2>Help grow a greener future</h2>
-        <p>
-          Volunteers can help with planting and maintaining trees, sharing
-          awareness, and supporting community activities.
-        </p>
-        <a class="button" href="index.html#register">Get involved <span aria-hidden="true">â†’</span></a>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Team Green - Growing a greener future through community action</p>
+    <p>&copy; 2026 Kalthireddy Ajay · Sree Venkateswara College of Engineering</p>
   </footer>
 </body>
 </html>
