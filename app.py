@@ -17,7 +17,7 @@ class TreePlantationHandler(SimpleHTTPRequestHandler):
 
         if path == "/":
             self.path = "/index.html"
-        elif path not in {"/index.html", "/about.html"}:
+        elif path not in {"/index.html", "/about.html", "/green-oasis.html"}:
             self.send_error(404, "Page not found")
             return
 
