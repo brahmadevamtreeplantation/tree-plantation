@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+  <meta name="description" content="Learn about The Tree Plantation project, its mission, and the CSP group members behind the community work.">
+  <title>About | The Tree Plantation</title>
+  <style>
+    :root {
+      --forest: #173f35;
+      --forest-dark: #102e27;
+      --leaf: #397653;
+      --lime: #d9edaa;
+      --paper: #fffefa;
+      --cream: #f4f5ec;
+      --ink: #20332b;
+      --muted: #64736b;
+      --line: #e3e8de;
+      --shadow: 0 18px 55px rgb(18 46 36 / 10%);
+      --radius: 22px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 44px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      border-bottom: 1px solid rgb(227 232 222 / 85%);
+      background: rgb(255 254 250 / 94%);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-wrap {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--forest);
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lime);
+      overflow: hidden;
+    }
+
+    .brand-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #43564c;
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--leaf);
+    }
+
+    .nav-links .nav-cta {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--forest);
+      color: white;
+    }
+
+    .hero {
+      display: flex;
+      min-height: 460px;
+      align-items: end;
+      background:
+        linear-gradient(90deg, rgb(10 35 27 / 78%), rgb(10 35 27 / 25%)),
+        url("https://greenoasis0.github.io/Green-Oasis/forest-3.jpg")
+        center 48% / cover;
+      color: white;
+    }
+
+    .hero-content {
+      width: 100%;
+      padding-block: 75px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 15px;
+      color: var(--leaf);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow {
+      color: var(--lime);
+    }
+
+    .eyebrow::before {
+      width: 24px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      line-height: 1.15;
+    }
+
+    .hero h1 {
+      max-width: 750px;
+      margin: 0;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      letter-spacing: -0.055em;
+    }
+
+    .hero p:last-child {
+      max-width: 620px;
+      margin: 17px 0 0;
+      color: rgb(255 255 255 / 84%);
+      font-size: 1.08rem;
+    }
+
+    .location-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      padding: 9px 14px;
+      border: 1px solid rgb(255 255 255 / 35%);
+      border-radius: 999px;
+      background: rgb(255 255 255 / 12%);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 650;
+      backdrop-filter: blur(8px);
+    }
+
+    .section {
+      padding-block: 85px;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .mission-image {
+      min-height: 400px;
+      border-radius: var(--radius);
+      background:
+        url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=85")
+        center / cover;
+      box-shadow: var(--shadow);
+    }
+
+    .mission-copy h2,
+    .section-heading h2 {
+      margin: 0 0 17px;
+      color: var(--forest);
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.045em;
+    }
+
+    .mission-copy p:not(.eyebrow) {
+      color: var(--muted);
+    }
+
+    .section-soft {
+      background: var(--cream);
+    }
+
+    .section-heading {
+      max-width: 690px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-heading > p:last-child {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .value-card {
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+    }
+
+    .value-icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 15px;
+      background: #edf4df;
+      font-size: 1.4rem;
+    }
+
+    .value-card h3 {
+      margin: 0 0 9px;
+      color: var(--forest);
+      font-size: 1.15rem;
+    }
+
+    .value-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .activity-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .activity-card {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: white;
+    }
+
+    .activity-card span {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--leaf);
+      font-size: 0.77rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .activity-card h3 {
+      margin: 0 0 9px;
+      color: var(--forest);
+      font-size: 1.05rem;
+    }
+
+    .activity-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .team-message {
+      max-width: 760px;
+      margin-inline: auto;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .team-message p {
+      margin: 0;
+    }
+
+    .team-message p + p {
+      margin-top: 12px;
+    }
+
+    .member-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 760px;
+      margin: 25px auto 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .member-list li {
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      color: var(--forest);
+      font-weight: 750;
+      text-align: center;
+    }
+
+    .join {
+      padding-block: 72px;
+      background: var(--forest);
+      color: white;
+      text-align: center;
+    }
+
+    .join h2 {
+      margin: 0 0 13px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
+    }
+
+    .join p {
+      max-width: 640px;
+      margin: 0 auto 25px;
+      color: rgb(255 255 255 / 78%);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 21px;
+      border-radius: 999px;
+      background: var(--lime);
+      color: var(--forest-dark);
+      font-weight: 750;
+      text-decoration: none;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #e7f5c9;
+    }
+
+    footer {
+      padding: 23px;
+      background: var(--forest-dark);
+      color: rgb(255 255 255 / 75%);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    :focus-visible {
+      outline: 3px solid #93bf55;
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 850px) {
+      .nav-wrap {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+        padding-block: 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 18px;
+        overflow-x: auto;
+        padding: 6px 1px;
+      }
+
+      .nav-links a {
+        flex-shrink: 0;
+        font-size: 0.85rem;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .mission-image {
+        min-height: 310px;
+      }
+
+      .activity-timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 34px, 540px);
+      }
+
+      .hero {
+        min-height: 390px;
+        background-position: 58% center;
+      }
+
+      .hero-content {
+        padding-block: 58px;
+      }
+
+      .section {
+        padding-block: 65px;
+      }
+
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .activity-timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .member-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="The Tree Plantation home">
+        <span class="brand-icon" aria-hidden="true">🌱</span>
+        <span>The Tree Plantation</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#plants">Plants &amp; Offset</a>
+        <a href="index.html#project">Projects</a>
+        <a href="#activities">Weekly activities</a>
+        <a href="about.html" aria-current="page">About us</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a class="nav-cta" href="index.html#register">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">Our story</p>
+        <h1>A shared mission to make our world greener.</h1>
+        <p>
+          The Tree Plantation project brings people together around tree
+          planting, forest conservation, and practical ways to support a more
+          sustainable future.
+        </p>
+        <span class="location-tag"><span aria-hidden="true">📍</span> Brahmadevam, Nellore, Andhra Pradesh</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container mission-grid">
+        <div class="mission-image" role="img" aria-label="A sunlit forest filled with green trees"></div>
+        <div class="mission-copy">
+          <p class="eyebrow">Our mission</p>
+          <h2>Make tree planting easier for everyone.</h2>
+          <p>
+            The project encourages citizens and organizations to take part in
+            tree planting, reforestation, and conservation. Trees store carbon
+            as they grow, but a healthy, lasting impact depends on choosing
+            suitable trees and caring for them over time.
+          </p>
+          <p>
+            Through awareness and practical community projects, we aim to make
+            planting and maintaining trees more accessible while supporting
+            local communities and protecting biodiversity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">What guides us</p>
+          <h2>Growing a meaningful impact</h2>
+          <p>
+            Tree planting works best when it is part of a broader commitment
+            to healthy ecosystems and community participation.
+          </p>
+        </div>
+        <div class="values">
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">🌳</div>
+            <h3>Restore forests</h3>
+            <p>Support responsible planting and conservation efforts that help restore natural spaces.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">🦋</div>
+            <h3>Protect biodiversity</h3>
+            <p>Recognize the value of forests as habitats for the many species that depend on them.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">🤝</div>
+            <h3>Work together</h3>
+            <p>Encourage volunteers and communities to plant, nurture, and monitor trees over time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="activities">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Weekly activities</p>
+          <h2>Eight weeks from planning to plant care</h2>
+          <p>Follow the project from its first community survey through planting, monitoring, and sharing the results.</p>
+        </div>
+        <div class="activity-timeline">
+          <article class="activity-card">
+            <span>Week 1</span>
+            <h3>Plan the project</h3>
+            <p>Form the team, set project goals, and identify suitable places for planting in the community.</p>
+          </article>
+          <article class="activity-card">
+            <span>Week 2</span>
+            <h3>Survey the locality</h3>
+            <p>Talk with residents, note areas that need more greenery, and seek permission for the planned activities.</p>
+          </article>
+          <article class="activity-card">
+            <span>Week 3</span>
+            <h3>Raise awareness</h3>
+            <p>Share information about the value of trees with students and residents using posters, pamphlets, and a banner.</p>
+          </article>
+          <article class="activity-card">
+            <span>Week 4</span>
+            <h3>Prepare to plant</h3>
+            <p>Choose suitable saplings, arrange tools, and prepare planting locations with help from the community.</p>
+          </article>
+          <article class="activity-card">
+            <span>Week 5</span>
+            <h3>Plant the saplings</h3>
+            <p>Plant at selected community and school locations, including the road area and DLNR High School in Buchireddypalem.</p>
+          </article>
+          <article class="activity-card">
+            <span>Week 6</span>
+            <h3>Distribute &amp; protect</h3>
+            <p>Share plants with residents, water young trees, add compost, and protect saplings from animal damage.</p>
+          </article>
+          <article class="activity-card">
+            <span>Week 7</span>
+            <h3>Monitor plant health</h3>
+            <p>Check growth and soil moisture, identify problems, and coordinate ongoing care with local helpers.</p>
+          </article>
+          <article class="activity-card">
+            <span>Week 8</span>
+            <h3>Document the results</h3>
+            <p>Record the project outcomes, collect photographs, reflect on lessons, and share the work through this website.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">CSP group</p>
+          <h2>The people behind the project</h2>
+          <p>
+            The community service project was carried out by this student team.
+          </p>
+        </div>
+        <div class="team-message">
+          <p>Our CSP group members:</p>
+        </div>
+        <ul class="member-list" aria-label="Community Service Project group members">
+          <li>K. Hema Vardhan</li>
+          <li>K. Ajay</li>
+          <li>K. Praveen Kumar</li>
+          <li>K. Giri</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="join">
+      <div class="container">
+        <h2>Help grow a greener future</h2>
+        <p>
+          Volunteers can help with planting and maintaining trees, sharing
+          awareness, and supporting community activities.
+        </p>
+        <a class="button" href="index.html#register">Get involved <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 The Tree Plantation · Growing a greener future through community action</p>
+  </footer>
+</body>
+</html>

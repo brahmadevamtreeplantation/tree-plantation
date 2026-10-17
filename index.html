@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+  <meta name="description" content="The Tree Plantation shares the story, lessons, and community impact of a tree-planting project in Nellore, Andhra Pradesh.">
+  <title>The Tree Plantation</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --forest: #173f35;
+      --forest-dark: #102e27;
+      --leaf: #397653;
+      --lime: #d9edaa;
+      --paper: #fffefa;
+      --cream: #f4f5ec;
+      --ink: #20332b;
+      --muted: #64736b;
+      --line: #e3e8de;
+      --shadow: 0 18px 55px rgb(18 46 36 / 10%);
+      --radius: 22px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 44px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      border-bottom: 1px solid rgb(227 232 222 / 85%);
+      background: rgb(255 254 250 / 94%);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-wrap {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--forest);
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lime);
+      font-size: 1.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #43564c;
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--leaf);
+    }
+
+    .nav-links .nav-cta {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--forest);
+      color: white;
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 610px;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgb(10 35 27 / 84%), rgb(10 35 27 / 54%) 54%, rgb(10 35 27 / 16%)),
+        url("https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=2000&q=85")
+        center 52% / cover;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      padding-block: 90px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 16px;
+      color: var(--leaf);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow {
+      color: var(--lime);
+    }
+
+    .eyebrow::before {
+      width: 24px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      line-height: 1.15;
+    }
+
+    .hero h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.9rem, 7.5vw, 5.7rem);
+      letter-spacing: -0.06em;
+    }
+
+    .hero h1 span {
+      color: var(--lime);
+    }
+
+    .hero-copy {
+      max-width: 550px;
+      margin: 22px 0 29px;
+      color: rgb(255 255 255 / 87%);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 21px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--lime);
+      color: var(--forest-dark);
+      font: inherit;
+      font-weight: 750;
+      text-decoration: none;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #e7f5c9;
+    }
+
+    .hero-note {
+      display: inline-block;
+      margin-left: 14px;
+      color: rgb(255 255 255 / 78%);
+      font-size: 0.9rem;
+    }
+
+    .section {
+      padding-block: 92px;
+    }
+
+    .section-soft {
+      background: var(--cream);
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-heading h2,
+    .about-copy h2 {
+      margin: 0 0 15px;
+      color: var(--forest);
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.045em;
+    }
+
+    .section-heading p:last-child,
+    .about-copy > p:not(.eyebrow) {
+      color: var(--muted);
+    }
+
+    .section-heading p:last-child {
+      margin: 0;
+      font-size: 1.03rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 58px;
+    }
+
+    .about-image {
+      min-height: 410px;
+      border-radius: var(--radius);
+      background:
+        url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=85")
+        center / cover;
+      box-shadow: var(--shadow);
+    }
+
+    .about-copy > p:not(.eyebrow) {
+      margin: 0;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .fact {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: white;
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--leaf);
+      font-size: 1.35rem;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+    }
+
+    .card-icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      margin-bottom: 19px;
+      border-radius: 15px;
+      background: #edf4df;
+      font-size: 1.4rem;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--forest);
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .project-panel {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+    }
+
+    .project-panel h3 {
+      margin: 0 0 18px;
+      color: var(--forest);
+      font-size: 1.35rem;
+    }
+
+    .project-panel ul {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .project-panel li::marker {
+      color: var(--leaf);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .timeline-item {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: white;
+    }
+
+    .timeline-item span {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--leaf);
+      font-size: 0.77rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 9px;
+      color: var(--forest);
+      font-size: 1.05rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .care-note {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--leaf);
+      border-radius: 0 14px 14px 0;
+      background: #edf4df;
+      color: var(--forest);
+    }
+
+    .location-card {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .location-copy {
+      align-self: center;
+      padding: 34px;
+    }
+
+    .location-pin {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      background: #edf4df;
+      font-size: 1.6rem;
+    }
+
+    .location-copy h3 {
+      margin: 0 0 10px;
+      color: var(--forest);
+      font-size: 1.55rem;
+    }
+
+    .location-copy p:not(.eyebrow) {
+      color: var(--muted);
+    }
+
+    .location-map {
+      min-height: 340px;
+      border: 0;
+      width: 100%;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 17px;
+    }
+
+    .gallery-card {
+      position: relative;
+      min-height: 270px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #dce8d9;
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-card:first-child {
+      min-height: 350px;
+    }
+
+    .gallery-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 300ms ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-card figcaption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 45px 18px 17px;
+      background: linear-gradient(transparent, rgb(9 31 22 / 80%));
+      color: white;
+      font-weight: 750;
+    }
+
+    .join {
+      padding-block: 76px;
+      background: var(--forest);
+      color: white;
+      text-align: center;
+    }
+
+    .join h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
+    }
+
+    .join p {
+      max-width: 620px;
+      margin: 0 auto 25px;
+      color: rgb(255 255 255 / 78%);
+    }
+
+    .register-wrap {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      align-items: start;
+      gap: 42px;
+    }
+
+    .register-copy h2 {
+      margin: 0 0 14px;
+      color: var(--forest);
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      letter-spacing: -0.045em;
+    }
+
+    .register-copy p {
+      color: var(--muted);
+    }
+
+    .demo-note {
+      padding: 15px 17px;
+      border-radius: 13px;
+      background: #edf4df;
+      color: var(--forest);
+      font-size: 0.9rem;
+    }
+
+    .register-form {
+      display: grid;
+      gap: 15px;
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      color: var(--forest);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 12px;
+      border: 1px solid #cfd8ce;
+      border-radius: 10px;
+      background: white;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .register-form .button {
+      justify-self: start;
+      background: var(--forest);
+      color: white;
+      cursor: pointer;
+    }
+
+    .register-form .button:hover {
+      background: var(--leaf);
+    }
+
+    .form-message {
+      min-height: 1.5em;
+      margin: 0;
+      color: var(--forest);
+      font-size: 0.9rem;
+    }
+
+    .login-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 22px;
+      padding: 23px 26px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: white;
+    }
+
+    .login-info h3 {
+      margin: 0 0 4px;
+      color: var(--forest);
+      font-size: 1.08rem;
+    }
+
+    .login-info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3 {
+      margin: 0 0 8px;
+      color: var(--forest);
+      font-size: 1.3rem;
+    }
+
+    .contact-card p {
+      margin: 3px 0;
+      color: var(--muted);
+    }
+
+    .contact-card a {
+      color: var(--leaf);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 23px;
+      background: var(--forest-dark);
+      color: rgb(255 255 255 / 75%);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    :focus-visible {
+      outline: 3px solid #93bf55;
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 850px) {
+      .nav-wrap {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+        padding-block: 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 18px;
+        overflow-x: auto;
+        padding: 6px 1px;
+      }
+
+      .nav-links a {
+        flex-shrink: 0;
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        min-height: 540px;
+      }
+
+      .about-grid,
+      .register-wrap {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .location-card {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        min-height: 320px;
+        grid-row: 2;
+      }
+
+      .timeline {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 34px, 540px);
+      }
+
+      .hero {
+        min-height: 510px;
+        background-position: 60% center;
+      }
+
+      .hero-content {
+        padding-block: 65px;
+      }
+
+      .hero-note {
+        display: block;
+        margin: 13px 0 0;
+      }
+
+      .section {
+        padding-block: 68px;
+      }
+
+      .facts,
+      .cards,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-card:first-child {
+        grid-column: 1 / -1;
+        min-height: 290px;
+      }
+
+      .gallery-card {
+        min-height: 210px;
+      }
+
+      .contact-card,
+      .login-info {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .timeline,
+      .gallery-grid,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-card:first-child {
+        grid-column: auto;
+      }
+
+      .gallery-card,
+      .gallery-card:first-child {
+        min-height: 245px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="The Tree Plantation home">
+        <span class="brand-icon" aria-hidden="true">🌱</span>
+        <span>The Tree Plantation</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#plants">Plants &amp; Offset</a>
+        <a href="#project">Projects</a>
+        <a href="#journey">Weekly activities</a>
+        <a href="#location">Location</a>
+        <a href="about.html">About us</a>
+        <a href="#gallery">Gallery</a>
+        <a class="nav-cta" href="#register">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <p class="eyebrow">Community, care, and a greener future</p>
+        <h1>Growing green.<br><span>Growing together.</span></h1>
+        <p class="hero-copy">
+          The Tree Plantation shares the story of a community tree-planting project in
+          Nellore, Andhra Pradesh—and the care it takes to help every sapling thrive.
+        </p>
+        <a class="button" href="#project">Explore the project <span aria-hidden="true">→</span></a>
+        <span class="hero-note">Growing Green: The Tree Plantation</span>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <p class="eyebrow">About the project</p>
+          <h2>Planting is a beginning. Caring is how we grow.</h2>
+          <p>
+            This website shares the Community Service Project
+            “Growing Green: The Tree Plantation.” It brings together local
+            awareness, practical planting, and follow-up care to encourage a
+            healthier environment for the community.
+          </p>
+          <div class="facts" aria-label="Project details">
+            <div class="fact">
+              <strong>8 weeks</strong>
+              <span>Community service project</span>
+            </div>
+            <div class="fact">
+              <strong>10</strong>
+              <span>Trees planted and monitored</span>
+            </div>
+            <div class="fact">
+              <strong>Brahmadevam</strong>
+              <span>Nellore, Andhra Pradesh</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image" role="img" aria-label="Sunlight filtering through a green forest"></div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="plants">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Plants &amp; offset</p>
+          <h2>Why trees matter</h2>
+          <p>
+            Trees support people and nature in many ways. Choosing suitable
+            species and caring for them locally helps those benefits last.
+          </p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🌬️</div>
+            <h3>Cleaner, cooler places</h3>
+            <p>Trees provide shade, take in carbon as they grow, and help make streets and shared spaces more comfortable.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🦋</div>
+            <h3>Room for nature</h3>
+            <p>Well-chosen trees can provide food and habitat for birds, insects, and other local wildlife.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🌱</div>
+            <h3>Healthier soil</h3>
+            <p>Tree roots help hold soil in place, while leaf cover and shade contribute to a healthier local environment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="project">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Community project</p>
+          <h2>From awareness to action</h2>
+          <p>
+            The project paired conversations and education with planting,
+            distribution, and monitoring in the community.
+          </p>
+        </div>
+        <div class="project-grid">
+          <article class="project-panel">
+            <h3>What the team did</h3>
+            <ul>
+              <li>Surveyed households and identified places that needed more greenery.</li>
+              <li>Held an awareness campaign with a banner, posters, and informational pamphlets.</li>
+              <li>Planted saplings near a road and at DLNR High School in Buchireddypalem.</li>
+              <li>Distributed plants to local residents and encouraged them to care for them.</li>
+            </ul>
+          </article>
+          <article class="project-panel">
+            <h3>What the team learned</h3>
+            <ul>
+              <li>Young trees need regular watering, especially during hot weather.</li>
+              <li>Animal damage can threaten new growth, so the team added protective fencing.</li>
+              <li>Compost was used as a natural fertilizer to support plant growth.</li>
+              <li>Local participation and follow-up are essential after a planting drive.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="journey">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Weekly activities</p>
+          <h2>Eight weeks from planning to plant care</h2>
+          <p>This week-by-week outline brings the project activities together, from learning about local needs to documenting results.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <span>Week 1</span>
+            <h3>Plan the project</h3>
+            <p>Form the team, set project goals, and identify suitable places for planting in the community.</p>
+          </article>
+          <article class="timeline-item">
+            <span>Week 2</span>
+            <h3>Survey the locality</h3>
+            <p>Talk with residents, note areas that need more greenery, and seek permission for the planned activities.</p>
+          </article>
+          <article class="timeline-item">
+            <span>Week 3</span>
+            <h3>Raise awareness</h3>
+            <p>Share information about the value of trees with students and residents using posters, pamphlets, and a banner.</p>
+          </article>
+          <article class="timeline-item">
+            <span>Week 4</span>
+            <h3>Prepare to plant</h3>
+            <p>Choose suitable saplings, arrange tools, and prepare planting locations with help from the community.</p>
+          </article>
+          <article class="timeline-item">
+            <span>Week 5</span>
+            <h3>Plant the saplings</h3>
+            <p>Plant at selected community and school locations, including the road area and DLNR High School in Buchireddypalem.</p>
+          </article>
+          <article class="timeline-item">
+            <span>Week 6</span>
+            <h3>Distribute &amp; protect</h3>
+            <p>Share plants with residents, water young trees, add compost, and protect saplings from animal damage.</p>
+          </article>
+          <article class="timeline-item">
+            <span>Week 7</span>
+            <h3>Monitor plant health</h3>
+            <p>Check growth and soil moisture, identify problems, and coordinate ongoing care with local helpers.</p>
+          </article>
+          <article class="timeline-item">
+            <span>Week 8</span>
+            <h3>Document the results</h3>
+            <p>Record the project outcomes, collect photographs, reflect on lessons, and share the work through this website.</p>
+          </article>
+        </div>
+        <p class="care-note">
+          <strong>Monitoring note:</strong> The report records 10 trees planted;
+          at a later check, 6 were in good condition and 4 had died. The team
+          identified consistent watering and protection from animals as important
+          areas for continued care.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="location">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Project location</p>
+          <h2>Find us in Brahmadevam</h2>
+          <p>Our community tree-planting project is based in Brahmadevam, Nellore, Andhra Pradesh.</p>
+        </div>
+        <div class="location-card">
+          <div class="location-copy">
+            <span class="location-pin" aria-hidden="true">📍</span>
+            <h3>Brahmadevam</h3>
+            <p>Nellore, Andhra Pradesh, India</p>
+            <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=Brahmadevam%2C+Nellore%2C+Andhra+Pradesh" target="_blank" rel="noopener noreferrer">
+              Open location in Google Maps <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <iframe
+            class="location-map"
+            title="Map showing Brahmadevam, Nellore, Andhra Pradesh"
+            src="https://maps.google.com/maps?q=Brahmadevam%2C%20Nellore%2C%20Andhra%20Pradesh&t=&z=12&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Gallery</p>
+          <h2>A greener community starts together</h2>
+          <p>Images illustrate the project’s themes of planting, learning, and caring for green spaces.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=85" alt="Sunlight reaching through a leafy forest canopy" loading="lazy">
+            <figcaption>Green spaces for everyone</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=85" alt="Hands tending to a young plant" loading="lazy">
+            <figcaption>Care for every sapling</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=85" alt="A thriving green woodland" loading="lazy">
+            <figcaption>Growing a lasting impact</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="join" id="join">
+      <div class="container">
+        <h2>Join us in growing green</h2>
+        <p>
+          Help raise awareness, plant suitable trees, and make time to care for
+          them. A small, consistent effort can make a difference in your community.
+        </p>
+        <a class="button" href="#register">Become a volunteer <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="register">
+      <div class="container register-wrap">
+        <div class="register-copy">
+          <p class="eyebrow">Volunteer registration</p>
+          <h2>Want to take part?</h2>
+          <p>
+            Volunteers can support planting activities and help protect and
+            nurture trees in their locality.
+          </p>
+          <p class="demo-note">
+            This standalone site has no registration server connected. The form
+            below is a preview and will not send or save your details.
+          </p>
+        </div>
+        <form class="register-form" id="volunteer-form">
+          <div class="form-row">
+            <div class="field">
+              <label for="volunteer-name">Your name</label>
+              <input id="volunteer-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="volunteer-email">Email address</label>
+              <input id="volunteer-email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="volunteer-community">Your community</label>
+            <input id="volunteer-community" name="community" autocomplete="address-level2" required>
+          </div>
+          <button class="button" type="submit">Preview registration</button>
+          <p class="form-message" id="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="container">
+        <aside class="login-info" aria-label="Login information">
+          <div>
+            <h3>About login</h3>
+            <p>The project report describes login as optional; public project information does not require an account.</p>
+          </div>
+          <span aria-hidden="true">🔓</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <p class="eyebrow">About the project</p>
+            <h3>Growing Green: The Tree Plantation</h3>
+            <p>Community Service Project · Nellore, Andhra Pradesh · 2025</p>
+            <p>Prepared by Kalthireddy Ajay · Sree Venkateswara College of Engineering</p>
+          </div>
+          <a href="#home">Back to top ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 The Tree Plantation · Growing a greener future through community action</p>
+  </footer>
+
+  <script>
+    const volunteerForm = document.querySelector("#volunteer-form");
+    const formMessage = document.querySelector("#form-message");
+
+    volunteerForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!volunteerForm.reportValidity()) return;
+      formMessage.textContent = "Preview only: no details were sent or saved because registration is not connected to a server.";
+      volunteerForm.reset();
+    });
+  </script>
+</body>
+</html>
