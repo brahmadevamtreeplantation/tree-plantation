@@ -380,35 +380,12 @@
       color: var(--muted);
     }
 
-    .project-details {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin: 26px 0 0;
-    }
-
-    .project-details div,
     .report-card,
     .week-card {
       padding: 22px;
       border: 1px solid var(--line);
       border-radius: 17px;
       background: white;
-    }
-
-    .project-details dt {
-      margin-bottom: 4px;
-      color: var(--leaf);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .project-details dd {
-      margin: 0;
-      color: var(--forest);
-      font-weight: 700;
     }
 
     .report-cards {
@@ -582,7 +559,6 @@
 
       .values,
       .member-list,
-      .project-details,
       .week-reports {
         grid-template-columns: 1fr;
       }
@@ -627,28 +603,12 @@
     </section>
 
     <nav class="report-nav" aria-label="Project report sections">
-      <a href="#about">About</a>
       <a href="#summary">Executive summary</a>
       <a href="#community">Community overview</a>
       <a href="#activities">Weekly reports</a>
       <a href="#benefits">Benefits</a>
       <a href="#ack">Acknowledgements</a>
     </nav>
-
-    <section class="report-section" id="about">
-      <div class="container">
-        <p class="eyebrow">About the project</p>
-        <h2>Project details</h2>
-        <dl class="project-details">
-          <div><dt>Student</dt><dd>Kalthireddy Ajay · Reg. No: 24JNA05315</dd></div>
-          <div><dt>Program</dt><dd>III Year B.Tech (CSE)</dd></div>
-          <div><dt>College</dt><dd>Sree Venkateswara College of Engineering, Nellore</dd></div>
-          <div><dt>Faculty guide</dt><dd>Mr. B. Rammurthi</dd></div>
-          <div><dt>Duration</dt><dd>30 June 2025 – 23 August 2025</dd></div>
-          <div><dt>Location</dt><dd>Brahmadevam</dd></div>
-        </dl>
-      </div>
-    </section>
 
     <section class="report-section" id="summary">
       <div class="container">
@@ -739,7 +699,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Kalthireddy Ajay · Sree Venkateswara College of Engineering</p>
+    <p>&copy; 2026 Growing Green: Tree Plantation CSP</p>
   </footer>
 </body>
 </html>
