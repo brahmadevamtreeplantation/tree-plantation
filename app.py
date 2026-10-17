@@ -26,7 +26,7 @@ class TreePlantationHandler(SimpleHTTPRequestHandler):
 
 def main():
     server = ThreadingHTTPServer((HOST, PORT), TreePlantationHandler)
-    print(f"The Tree Plantation website is running at http://{HOST}:{PORT}")
+    print(f"Growing Green website is running at http://{HOST}:{PORT}")
     print("Press Ctrl+C to stop the server.")
 
     try:
